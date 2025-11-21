@@ -1,3 +1,4 @@
+
 #include "binary_trees.h"
 #include <stdlib.h>
 
@@ -60,8 +61,6 @@ heap_t *get_insertion_parent(heap_t *root)
 
 	if (!root)
 		return (NULL);
-
-	/* Use level-order traversal to find the first node with an empty slot */
 	queue[rear++] = root;
 
 	while (front < rear)
@@ -74,8 +73,6 @@ heap_t *get_insertion_parent(heap_t *root)
 		queue[rear++] = current->left;
 		queue[rear++] = current->right;
 	}
-
-	/* This shouldn't happen in a valid heap */
 	size = heap_size(root);
 	return (find_parent_by_index(root, size, size));
 }
@@ -148,12 +145,10 @@ heap_t *heap_insert(heap_t **root, int value)
 
 	original_value = value;
 	heapify_up(new_node);
-
-	/* Find the node with the original value */
 	if (new_node->n != original_value)
 	{
-		/* The value was swapped, find where it ended up */
 		heap_t *current = new_node;
+
 		while (current && current->n != original_value)
 			current = current->parent;
 		if (current)
