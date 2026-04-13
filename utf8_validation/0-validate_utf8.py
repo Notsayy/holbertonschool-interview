@@ -1,8 +1,20 @@
 #!/usr/bin/python3
+"""
+Module that determines if a given data set represents a valid UTF-8 encoding.
+
+Each integer in data represents 1 byte (8 least significant bits).
+"""
+
+
 def validUTF8(data):
     """
     Determines if a given data set represents a valid UTF-8 encoding.
-    Each integer in data represents 1 byte (8 least significant bits).
+
+    Args:
+        data (list): List of integers, each representing 1 byte.
+
+    Returns:
+        bool: True if data is a valid UTF-8 encoding, else False.
     """
     remaining_bytes = 0
 
