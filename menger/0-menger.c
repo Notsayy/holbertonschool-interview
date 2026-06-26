@@ -10,14 +10,14 @@
  */
 static int is_space(int row, int col)
 {
-    while (row > 0 || col > 0)
-    {
-        if (row % 3 == 1 && col % 3 == 1)
-            return (1);
-        row /= 3;
-        col /= 3;
-    }
-    return (0);
+	while (row > 0 || col > 0)
+	{
+		if (row % 3 == 1 && col % 3 == 1)
+			return (1);
+		row /= 3;
+		col /= 3;
+	}
+	return (0);
 }
 
 /**
@@ -26,24 +26,24 @@ static int is_space(int row, int col)
  */
 void menger(int level)
 {
-    int size = 1;
-    int row, col, i;
+	int size = 1;
+	int row, col, i;
 
-    if (level < 0)
-        return;
+	if (level < 0)
+		return;
 
-    for (i = 0; i < level; i++)
-        size *= 3;
+	for (i = 0; i < level; i++)
+		size *= 3;
 
-    for (row = 0; row < size; row++)
-    {
-        for (col = 0; col < size; col++)
-        {
-            if (is_space(row, col))
-                putchar(' ');
-            else
-                putchar('#');
-        }
-        putchar('\n');
-    }
+	for (row = 0; row < size; row++)
+	{
+		for (col = 0; col < size; col++)
+		{
+			if (is_space(row, col))
+				putchar(' ');
+			else
+				putchar('#');
+		}
+		putchar('\n');
+	}
 }
